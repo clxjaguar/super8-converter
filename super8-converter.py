@@ -68,6 +68,7 @@ class Player(QObject):
 	def __init__(self, filename, startAt=0, cropDetectLevel=None, cropRect=None, forceFPS=False, mirror=False, outputFile=None, eqDict=None, additionalParameters=None):
 		QObject.__init__(self)
 
+		self.proc = None
 		self.filename = filename
 		self.startAt = startAt
 		self.cropDetectLevel = cropDetectLevel
