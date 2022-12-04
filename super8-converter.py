@@ -271,7 +271,7 @@ class GUI(QWidget):
 		layout2 = QHBoxLayout()
 		mkLabel("Crop-detect at", layout2)
 		self.cropDetectAt = QSpinBox()
-		self.cropDetectAt.setMinimum(0)
+		self.cropDetectAt.setRange(0, 9999)
 		self.cropDetectAt.setValue(60)
 		self.cropDetectAt.setSuffix('s')
 		layout2.addWidget(self.cropDetectAt)
@@ -301,7 +301,7 @@ class GUI(QWidget):
 
 		mkLabel("Start conversion at", layout2)
 		self.startConversionAt = QDoubleSpinBox()
-		self.startConversionAt.setMinimum(0)
+		self.startConversionAt.setRange(0, 9999)
 		self.startConversionAt.setSingleStep(0.1)
 		self.startConversionAt.setSuffix('s')
 		layout2.addWidget(self.startConversionAt)
