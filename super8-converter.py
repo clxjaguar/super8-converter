@@ -281,7 +281,7 @@ class GUI(QWidget):
 		self.cropDetectLevel = QSpinBox()
 		self.cropDetectLevel.setMinimum(1)
 		self.cropDetectLevel.setMaximum(255)
-		self.cropDetectLevel.setValue(50)
+		self.cropDetectLevel.setValue(25)
 		layout2.addWidget(self.cropDetectLevel)
 
 		mkLabel(":", layout2)
