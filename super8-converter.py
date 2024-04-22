@@ -410,7 +410,25 @@ class GUI(QWidget):
 
 		self.setWindowTitle(u"8mm Captured Video Converter")
 		self.setWindowFlags(Qt.WindowStaysOnTopHint)
+		self.setAcceptDrops(True)
 		self.show()
+
+	def dragEnterEvent(self, e):
+		if e.mimeData().hasUrls:
+			filename = e.mimeData().urls()[0].toLocalFile()
+			for ext in ['avi', 'mp4', 'mkv']:
+				if filename.endswith(ext):
+					e.accept()
+					return
+		e.ignore()
+
+	def dropEvent(self, e):
+		if e.mimeData().hasUrls:
+			filename = e.mimeData().urls()[0].toLocalFile()
+			e.accept()
+			self.selectFile(filename)
+		else:
+			e.ignore()
 
 	def selectFileBtnClicked(self):
 		filename = QFileDialog.getOpenFileName(self, 'Select captured video file to convert', self.defaultInputPath, 'Unconverted files (*.avi *.mp4);;All (*)')[0]
